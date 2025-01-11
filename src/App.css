@@ -1,85 +1,124 @@
-#map {
+.app-container {
+  display: flex;
+  flex-direction: row;
   height: 100vh;
   width: 100%;
-  position: relative; /* Ensure the map container is positioned correctly */
+  position: relative;
+}
+
+#map {
+  height: 100%;
+  flex: 1;
+  transition: margin-left 0.3s ease;
+}
+
+.map-with-sidebar {
+  margin-left: 250px; /* Adjust to match sidebar width */
+}
+
+.map-full {
+  margin-left: 0;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: #f8f9fa;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.sidebar-content {
+  padding: 20px;
+}
+
+.filter-dropdown {
+  position: relative;
 }
 
 .filter-button {
-  position: absolute;
-  top: 10px;
-  right: 50px; /* Position the filter button on the far left */
-  z-index: 1000;
+  width: 100%;
+  padding: 10px;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   margin: 10px;
+}
+
+.filter-button:hover {
+  background-color: grey;
+}
+
+
+.layer-control-placeholder:hover {
+  background-color: grey;
+}
+
+.layer-control-placeholder {
+  width: 100%;
+  padding: 10px;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+
+}
+.filter-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.filter-menu label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.filter-menu input {
+  margin-right: 8px;
+}
+
+.toggle-sidebar {
+  position: absolute;
+  top: 20px;
+  left: 250px; /* Adjust for sidebar width */
+  z-index: 1100;
   padding: 10px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  align-items: top;
+  transition: left 0.3s ease;
 }
 
-.leaflet-control-layers {
-  position:relative;
-  top: 10px;
-  right: 10px; /* Position the layer control on the far right */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 10px;
-} /**/
-#map {
-  height: 100vh;
-  width: 100%;
-  position: relative; /* Ensure the map container is positioned correctly */
+.sidebar-closed {
+  left: 0;
 }
 
-.filter-button {
-  position: absolute;
-  top: 10px;
-  right: 30px; /* Position the filter button on the far right */
-  z-index: 1000;
-  margin: 10px;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  align-items: top;
-}
-
-.leaflet-control-layers {
-  position: absolute;  /* Position it relative to the filter button */
-  top: 50px; /* Position below the filter button */
-  right: 30px; /* Match the filter button's right positioning */
-  z-index: 999; /* Ensure it stays above the map */
-  background: white;  /* Optional: Make the control have a background */
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Optional: Add shadow to dropdown */
-}
-
-.filter-button:hover {
+.toggle-sidebar:hover {
   background-color: #0056b3;
-}
-
-@media (max-width: 768px) {
-  .filter-button {
-    top: 5px;
-    right: 5px;
-    padding: 8px 12px;
-    font-size: 0.9rem;
-  }
-}
-
-.filter-button:hover {
-  background-color: #0056b3;
-}
-@media (max-width: 768px) {
-  .filter-button {
-    top: 5px;
-    right: 5px;
-    padding: 8px 12px;
-    font-size: 0.9rem;
-  }
 }
