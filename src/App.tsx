@@ -131,7 +131,7 @@ const App: React.FC = () => {
               </div>
             )}
           </div>
-          <button className="layer-control-placeholder">Layer Control Button</button>
+          {/* <button className="layer-control-placeholder">Layer Control Button</button> */}
         </div>
       </div>
       {/* Persistent toggle button */}
